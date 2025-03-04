@@ -1,0 +1,27 @@
+Prerequisites and Setup:
+Have Python installed (Python 3.8+ recommended)
+Install required packages by running:
+pip install langchain langchain_anthropic streamlit pypdf faiss-cpu sentence-transformers python-dotenv
+
+Set up Anthropic API key:
+Create a .env file in your project directory
+Add your Anthropic API key: ANTHROPIC_API_KEY=your_key_here
+
+Run the application:
+python -m streamlit run app.py
+
+How It Works:
+Upload a PDF document through the Streamlit interface
+Text extraction: The app uses PyPDF to extract all text from the document
+Text chunking: The extracted text is split into manageable chunks (1000 characters with 200 character overlap)
+Vector embeddings: HuggingFace's free all-MiniLM-L6-v2 model converts text chunks into numerical vectors that represent meaning
+Similarity search: FAISS (Facebook AI Similarity Search) finds the most relevant chunks to the summarization task
+LLM processing: Claude AI by Anthropic processes the most relevant chunks and generates a concise 5-8 sentence summary
+
+Technologies Used:
+LangChain: Framework that connects various components for LLM applications
+FAISS: Efficient similarity search library for finding relevant document sections
+HuggingFace: Provides free text embedding models
+Anthropic's Claude: LLM that generates natural-sounding summaries
+PyPDF: Library for extracting text from PDF files
+Streamlit: Creates a simple web interface for the application
