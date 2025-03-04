@@ -1,6 +1,7 @@
 import streamlit as st 
 import os 
 
+from dotenv import load_dotenv
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain import FAISS
@@ -9,7 +10,8 @@ from langchain_anthropic import ChatAnthropic
 from langchain.callbacks import get_openai_callback
 from pypdf import PdfReader
 
-os.environ["ANTHROPIC_API_KEY"] = "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"
+load_dotenv()
+anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
 
 def process_text(text): 
   text_splitter = CharacterTextSplitter( 
