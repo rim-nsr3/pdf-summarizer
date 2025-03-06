@@ -2,6 +2,7 @@ Prerequisites and Setup:
 Have Python installed (Python 3.8+ recommended)
 Install required packages by running:
 pip install langchain langchain_anthropic streamlit pypdf faiss-cpu sentence-transformers python-dotenv
+pip install langchain_community
 
 Set up Anthropic API key:
 Create a .env file in your project directory
